@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = 'https://edhjzdlzzjmkggptkfop.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkaGp6ZGx6empta2dncHRrZm9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTQxNTIsImV4cCI6MjA1NzAzMDE1Mn0.TX0QErQx2YebWGieP0jvKGbbp0Kxt_uhgibS47G8Dt4';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkaGp6ZGx6empta2dncHRrZm9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTQxNTIsImV4cCI6MjA1NzAzMDE1Mn0.TX0QErQx2YebWGieP0jvKGbbp0Kxt_uhgibS47G8Dt4'
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Admin = () => {
@@ -50,9 +50,12 @@ const Admin = () => {
     }
   };
 
+  const handleAddEvent = () => {
+    alert("Add event button clicked!"); // Replace this with event-adding logic
+  };
+
   return (
     <div className="p-5">
-      {/* Modal for Authentication */}
       {showModal && (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center">
           <div className="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
@@ -81,7 +84,6 @@ const Admin = () => {
         </div>
       )}
 
-      {/* Admin Dashboard */}
       {user && (
         <>
           <div className="flex justify-between items-center mb-4">
@@ -107,6 +109,14 @@ const Admin = () => {
               </div>
             ))}
           </div>
+
+          {/* Floating "+" Button */}
+          <button
+            onClick={handleAddEvent}
+            className="fixed bottom-5 right-5 bg-purple-600 text-white text-3xl w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-purple-700"
+          >
+            +
+          </button>
         </>
       )}
     </div>

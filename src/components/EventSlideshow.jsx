@@ -1,19 +1,29 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = 'https://edhjzdlzzjmkggptkfop.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkaGp6ZGx6empta2dncHRrZm9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTQxNTIsImV4cCI6MjA1NzAzMDE1Mn0.TX0QErQx2YebWGieP0jvKGbbp0Kxt_uhgibS47G8Dt4'
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+
 
 export default function EventSlideshow() {
   const [events, setEvents] = useState([]);
   const [current, setCurrent] = useState(0);
 
-  // Load JSON data
   useEffect(() => {
-    fetch("../../public/Events.json") // Ensure this path matches your file location
-      .then((response) => response.json())
-      .then((data) => setEvents(data.events))
-      .catch((error) => console.error("Error loading events:", error));
+    const fetchEvents = async () => {
+      const { data, error } = await supabase.from("event_slider").select("*");
+      if (error) {
+        console.error("Error loading events:", error);
+      } else {
+        setEvents(data);
+      }
+    };
+    fetchEvents();
   }, []);
 
-  // Auto-slide every 5 seconds
   useEffect(() => {
     if (events.length === 0) return;
     const interval = setInterval(() => {
@@ -52,7 +62,6 @@ export default function EventSlideshow() {
                 alt={events[current].name}
                 className="w-full h-full object-cover"
               />
-              {/* Overlay */}
               <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white p-4">
                 <h2 className="text-xl font-bold">{events[current].name}</h2>
                 <p className="text-gray-300">{events[current].date} | {events[current].time}</p>
@@ -65,7 +74,6 @@ export default function EventSlideshow() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
           className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full shadow-md hover:bg-gray-600"
