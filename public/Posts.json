@@ -1,0 +1,50 @@
+{
+    "events": [
+      {
+        "id": 1,
+        "title": "Sunday Service",
+        "date": "2025-03-10",
+        "time": "10:00 AM",
+        "location": "Grace Community Church",
+        "description": "Join us for our weekly Sunday service filled with worship, prayer, and a powerful message.",
+        "image": "https://example.com/sunday-service.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Bible Study",
+        "date": "2025-03-13",
+        "time": "7:00 PM",
+        "location": "Church Hall Room 2",
+        "description": "Deepen your understanding of the scriptures with our interactive Bible study session.",
+        "image": "https://example.com/bible-study.jpg"
+      },
+      {
+        "id": 3,
+        "title": "Youth Fellowship Night",
+        "date": "2025-03-15",
+        "time": "6:00 PM",
+        "location": "Church Youth Center",
+        "description": "A fun and engaging night for young believers to connect, worship, and grow together.",
+        "image": "https://example.com/youth-night.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Community Outreach",
+        "date": "2025-03-20",
+        "time": "9:00 AM",
+        "location": "City Park",
+        "description": "Join us as we serve our local community through various outreach programs and activities.",
+        "image": "https://example.com/community-outreach.jpg"
+      },
+      {
+        "id": 5,
+        "title": "Easter Celebration",
+        "date": "2025-04-05",
+        "time": "11:00 AM",
+        "location": "Main Auditorium",
+        "description": "Celebrate the resurrection of Jesus with a special Easter service and family-friendly activities.",
+        "image": "https://example.com/easter-celebration.jpg"
+      }
+    ]
+  }
+  
