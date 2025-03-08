@@ -1,74 +1,114 @@
 import React, { useState, useEffect } from "react";
-import eventsData from "../../public/Posts.json"; // Adjust the path as needed
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = 'https://edhjzdlzzjmkggptkfop.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkaGp6ZGx6empta2dncHRrZm9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0NTQxNTIsImV4cCI6MjA1NzAzMDE1Mn0.TX0QErQx2YebWGieP0jvKGbbp0Kxt_uhgibS47G8Dt4';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Admin = () => {
   const [events, setEvents] = useState([]);
+  const [user, setUser] = useState(null);
+  const [showModal, setShowModal] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
-    setEvents(eventsData.events);
-  }, []);
+    const fetchUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      setUser(data?.user || null);
+      setShowModal(!data?.user);
+    };
 
-  const handleUpdate = (id) => {
-    alert(`Update post with ID: ${id}`);
+    const fetchEvents = async () => {
+      const { data, error } = await supabase.from("event_cards").select("*");
+      if (error) console.error("Error fetching events:", error);
+      else setEvents(data);
+    };
+
+    fetchUser();
+    if (user) fetchEvents();
+  }, [user]);
+
+  const handleSignIn = async () => {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) alert("Sign-in failed: " + error.message);
+    else setUser(data.user);
   };
 
-  const handleBlock = (id) => {
-    setEvents((prevEvents) =>
-      prevEvents.map((event) =>
-        event.id === id ? { ...event, blocked: !event.blocked } : event
-      )
-    );
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    setShowModal(true);
   };
 
-  const handleDelete = (id) => {
-    setEvents((prevEvents) => prevEvents.filter((event) => event.id !== id));
+  const handleDelete = async (id) => {
+    const { error } = await supabase.from("event_cards").delete().eq("id", id);
+    if (error) {
+      console.error("Error deleting event:", error);
+    } else {
+      setEvents(events.filter((event) => event.id !== id));
+    }
   };
 
   return (
     <div className="p-5">
-      <h2 className="text-xl font-bold mb-4">Admin Dashboard</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {events.map((event) => (
-          <div
-            key={event.id}
-            className={`p-4 border rounded-lg shadow-md ${
-              event.blocked ? "opacity-50" : ""
-            }`}
-          >
-            <img
-              src={event.image}
-              alt={event.title}
-              className="w-full h-40 object-cover rounded-md"
+      {/* Modal for Authentication */}
+      {showModal && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
+            <h2 className="text-xl font-bold mb-4">Admin Login</h2>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full p-2 border rounded mb-2"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <h3 className="text-lg font-semibold mt-2">{event.title}</h3>
-            <p className="text-sm text-gray-600">{event.date} at {event.time}</p>
-            <p className="text-sm text-gray-600">{event.location}</p>
-            <p className="text-sm mt-2">{event.description}</p>
-            <div className="mt-3 flex gap-2">
-              <button
-                onClick={() => handleUpdate(event.id)}
-                className="bg-blue-500 text-white px-3 py-1 rounded-md"
-              >
-                Update
-              </button>
-              <button
-                onClick={() => handleBlock(event.id)}
-                className={`${
-                  event.blocked ? "bg-green-500" : "bg-yellow-500"
-                } text-white px-3 py-1 rounded-md`}
-              >
-                {event.blocked ? "Unblock" : "Block"}
-              </button>
-              <button
-                onClick={() => handleDelete(event.id)}
-                className="bg-red-500 text-white px-3 py-1 rounded-md"
-              >
-                Delete
-              </button>
-            </div>
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full p-2 border rounded mb-2"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              onClick={handleSignIn}
+              className="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700"
+            >
+              Sign In
+            </button>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
+
+      {/* Admin Dashboard */}
+      {user && (
+        <>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold">Admin Dashboard</h2>
+            <button onClick={handleSignOut} className="bg-red-500 text-white px-4 py-2 rounded">
+              Sign Out
+            </button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {events.map((event) => (
+              <div key={event.id} className="p-4 border rounded-lg shadow-md">
+                <img src={event.image} alt={event.title} className="w-full h-40 object-cover rounded-md" />
+                <h3 className="text-lg font-semibold mt-2">{event.title}</h3>
+                <p className="text-sm text-gray-600">{event.date} at {event.time}</p>
+                <p className="text-sm text-gray-600">{event.location}</p>
+                <p className="text-sm mt-2">{event.description}</p>
+                <button
+                  onClick={() => handleDelete(event.id)}
+                  className="mt-3 bg-red-500 text-white px-3 py-1 rounded-md"
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

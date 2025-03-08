@@ -17,11 +17,32 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
-          <Link to="/services" className="font-bold text-xl">Services</Link>
-          <Link to="/offerings" className="font-bold text-xl">Offerings</Link>
-          <Link to="/preachings" className="font-bold text-xl">The Word</Link>
-          <Link to="/admin" className="font-bold text-xl">Admin</Link>
-        </div>
+  <Link
+    to="/services"
+    className="font-bold text-xl relative after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+  >
+    Services
+  </Link>
+  <Link
+    to="/offerings"
+    className="font-bold text-xl relative after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+  >
+    Offerings
+  </Link>
+  <Link
+    to="/preachings"
+    className="font-bold text-xl relative after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+  >
+    The Word
+  </Link>
+  <Link
+    to="/admin"
+    className="font-bold text-xl relative after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+  >
+    Admin
+  </Link>
+</div>
+
 
         {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={() => setIsOpen(true)}>
@@ -40,7 +61,7 @@ const Navbar = () => {
             <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
             <Link to="/offerings" onClick={() => setIsOpen(false)}>Offerings</Link>
             <Link to="/preachings" onClick={() => setIsOpen(false)}>The Word</Link>
-            <Link to="/admin" onClick={() => setIsOpen(false)}>Admin</Link>
+            {/* <Link to="/admin" onClick={() => setIsOpen(false)}>Admin</Link> */}
           </nav>
         </div>
       )}
