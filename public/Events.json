@@ -1,0 +1,59 @@
+{
+    "events": [
+      {
+        "id": 1,
+        "name": "Sunday Service",
+        "date": "2025-03-10",
+        "time": "10:00 AM",
+        "location": "Main Sanctuary",
+        "description": "Join us for worship, prayer, and a sermon from our pastor.",
+        "image": "https://i.pinimg.com/736x/e9/37/db/e937dbc552b6f0fd5e73cec6845d661c.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Bible Study",
+        "date": "2025-03-13",
+        "time": "6:30 PM",
+        "location": "Fellowship Hall",
+        "description": "An in-depth study of the scriptures with group discussions.",
+        "image": "https://i.pinimg.com/736x/5a/ab/da/5aabda9b0e2a0654bb52d1a6eb3be661.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Youth Fellowship",
+        "date": "2025-03-15",
+        "time": "4:00 PM",
+        "location": "Youth Center",
+        "description": "A fun and engaging meeting for young people with worship and activities.",
+        "image": "https://i.pinimg.com/736x/be/83/01/be8301bd0930d9208a7aee42ec8a0c38.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Prayer Meeting",
+        "date": "2025-03-17",
+        "time": "7:00 PM",
+        "location": "Prayer Room",
+        "description": "A time of corporate prayer and intercession for our church and community.",
+        "image": "https://i.pinimg.com/736x/01/b3/28/01b328c99c36a1ef11012b57f2f63287.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Community Outreach",
+        "date": "2025-03-20",
+        "time": "9:00 AM",
+        "location": "City Park",
+        "description": "Serving the community through food distribution and evangelism.",
+        "image": "https://i.pinimg.com/736x/a6/64/13/a664137d66fba68b6e73fccfaed9d3c8.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Choir Rehearsal",
+        "date": "2025-03-22",
+        "time": "5:00 PM",
+        "location": "Choir Room",
+        "description": "Practice session for all choir members in preparation for Sunday service.",
+        "image": "https://i.pinimg.com/736x/25/41/ef/2541ef5e10993d6a114153578c17ac14.jpg"
+      }
+    ]
+  }
+  

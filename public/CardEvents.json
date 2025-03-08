@@ -1,0 +1,45 @@
+{
+    "events": [
+      {
+        "title": "Sunday Worship Service",
+        "date": "2025-03-10",
+        "time": "10:00 AM - 12:00 PM",
+        "location": "Grace Community Church, Main Auditorium",
+        "description": "Join us for a powerful time of worship, prayer, and an inspiring sermon. All are welcome!",
+        "contact": "info@gracechurch.org",
+        "image": "https://i.pinimg.com/736x/a6/64/13/a664137d66fba68b6e73fccfaed9d3c8.jpg",
+        "cta": "Join Now"
+      },
+      {
+        "title": "Bible Study & Fellowship",
+        "date": "2025-03-13",
+        "time": "6:30 PM - 8:00 PM",
+        "location": "Church Fellowship Hall",
+        "description": "A midweek gathering for in-depth Bible study and discussion. Light refreshments will be served.",
+        "contact": "biblestudy@gracechurch.org",
+        "image": "https://i.pinimg.com/736x/25/41/ef/2541ef5e10993d6a114153578c17ac14.jpg",
+        "cta": "Join Study"
+      },
+      {
+        "title": "Youth Revival Night",
+        "date": "2025-03-15",
+        "time": "7:00 PM - 9:30 PM",
+        "location": "Youth Center",
+        "description": "An energetic and uplifting night of worship, testimonies, and a message designed for young people.",
+        "contact": "youth@gracechurch.org",
+        "image": "https://i.pinimg.com/736x/01/b3/28/01b328c99c36a1ef11012b57f2f63287.jpg",
+        "cta": "Register Now"
+      },
+      {
+        "title": "Community Outreach & Charity Drive",
+        "date": "2025-03-22",
+        "time": "9:00 AM - 2:00 PM",
+        "location": "Downtown Shelter",
+        "description": "Join us as we serve the community by distributing food, clothing, and sharing the love of Christ.",
+        "contact": "outreach@gracechurch.org",
+        "image": "https://i.pinimg.com/736x/01/b3/28/01b328c99c36a1ef11012b57f2f63287.jpg",
+        "cta": "Get Involved"
+      }
+    ]
+  }
+  
