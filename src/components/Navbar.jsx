@@ -27,7 +27,7 @@ const Navbar = () => {
     to="/offerings"
     className="font-bold text-xl relative after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
   >
-    Offerings
+    Giving
   </Link>
   <Link
     to="/preachings"
@@ -59,7 +59,7 @@ const Navbar = () => {
           <nav className="flex flex-col items-center space-y-8 text-white text-2xl font-bold">
             <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
             <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
-            <Link to="/offerings" onClick={() => setIsOpen(false)}>Offerings</Link>
+            <Link to="/offerings" onClick={() => setIsOpen(false)}>Giving</Link>
             <Link to="/preachings" onClick={() => setIsOpen(false)}>Service Notes</Link>
             {/* <Link to="/admin" onClick={() => setIsOpen(false)}>Admin</Link> */}
           </nav>
