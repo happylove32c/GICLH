@@ -33,7 +33,7 @@ const Navbar = () => {
     to="/preachings"
     className="font-bold text-xl relative after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
   >
-    The Word
+    Service Notes
   </Link>
   <Link
     to="/admin"
@@ -60,7 +60,7 @@ const Navbar = () => {
             <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
             <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
             <Link to="/offerings" onClick={() => setIsOpen(false)}>Offerings</Link>
-            <Link to="/preachings" onClick={() => setIsOpen(false)}>The Word</Link>
+            <Link to="/preachings" onClick={() => setIsOpen(false)}>Service Notes</Link>
             {/* <Link to="/admin" onClick={() => setIsOpen(false)}>Admin</Link> */}
           </nav>
         </div>
