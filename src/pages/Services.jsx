@@ -1,14 +1,14 @@
 import React from "react";
 
 const services = [
-  { id: 1, name: "Car Repair", date: "March 15, 2025", time: "10:00 AM" },
-  { id: 2, name: "Home Cleaning", date: "March 18, 2025", time: "2:00 PM" },
-  { id: 3, name: "Plumbing Service", date: "March 22, 2025", time: "11:30 AM" },
+  { id: 1, name: "Shop 4 Free", date: "March 15, 2025", time: "10:00 AM" },
+  { id: 2, name: "Weekly Service", date: "March 18, 2025", time: "2:00 PM" },
+  { id: 3, name: "Sunday Service", date: "March 22, 2025", time: "11:30 AM" },
 ];
 
 const Services = () => {
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
+    <div className="min-h-screen p-4 bg-gray-100 ">
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Upcoming Services</h2>
         <ul>
