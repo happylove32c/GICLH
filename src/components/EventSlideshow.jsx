@@ -74,7 +74,7 @@ export default function EventSlideshow() {
           </motion.div>
         </AnimatePresence>
 
-        <button
+        {/* <button
           onClick={prevSlide}
           className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full shadow-md hover:bg-gray-600"
         >
@@ -85,7 +85,7 @@ export default function EventSlideshow() {
           className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full shadow-md hover:bg-gray-600"
         >
           ❯
-        </button>
+        </button> */}
       </div>
     </div>
   );

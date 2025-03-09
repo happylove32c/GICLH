@@ -19,7 +19,7 @@ const ChurchEvents = () => {
     const fetchEvents = async () => {
       try {
         const { data, error } = await supabase.from('event_cards').select('*');
-        console.log("Event Titles:", data.map(event => event.title));
+        // console.log("Event Titles:", data.map(event => event.title));
         if (error) throw error;
         setEvents(data);
       } catch (err) {
@@ -34,7 +34,7 @@ const ChurchEvents = () => {
 
   if (loading) return <PulsingDot />;
   // <p className="text-2xl sm:text-3xl font-bold text-center mb-6">Loading...</p>;
-  if (error) return <p className="text-2xl text-red-300 sm:text-3xl font-bold text-center mb-6">Error: {error}</p>;
+  if (error) return <p className="text-2xl sm:text-3xl font-bold text-center mb-6">Error: {error}</p>;
 
   return (
     <div className="overflow-hidden p-4">

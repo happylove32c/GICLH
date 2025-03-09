@@ -35,12 +35,12 @@ const Navbar = () => {
   >
     Service Notes
   </Link>
-  <Link
+  {/* <Link
     to="/admin"
     className="font-bold text-xl relative after:block after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
   >
     Admin
-  </Link>
+  </Link> */}
 </div>
 
 
